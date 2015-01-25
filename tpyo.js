@@ -4,7 +4,7 @@
   "use strict";
 
   var opts = {
-        speed: 150,
+        speed: 100,
         speed_variance: 250,
         typo_freq_min: 5,
         typo_freq_max: 20,
@@ -18,8 +18,8 @@
     text = txt;
     index = 0;
 
-    for (var i in opts) {
-      if (options.hasOwnProperty(i) && typeof options[i] === typeof opts[i]) {
+    for (var i in options) {
+      if (opts.hasOwnProperty(i) && typeof options[i] === typeof opts[i]) {
         opts[i] = options[i];
       }
     }
