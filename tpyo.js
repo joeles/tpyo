@@ -1,7 +1,7 @@
 
-"use strict";
+;(function () {
 
-var tpyo = (function() {
+  "use strict";
 
   var options = {
         speed: 150,
@@ -22,7 +22,9 @@ var tpyo = (function() {
     index = 0;
 
     for (var i in opts) {
-      options[i] = opts[i];
+      if (options.hasOwnProperty(i)) {
+        options[i] = opts[i];
+      }
     }
 
     start();
@@ -61,9 +63,9 @@ var tpyo = (function() {
 
     var keyboard  = "1234567890-qwertyuiop[asdfghjkl;'zxcvbnm,./"
                   + '!@#$%^&*()_QWERTYUIOP{ASDFGHJKL:"ZXCVBNM<>?',
-        key_index = keyboard.indexOf(text[index]),
-        offsets = [-11, -10, -1, 1, 10, 11],
-        typo_char = keyboard[key_index + offsets[rand(0, (offsets.length - 1))]] || text[index];
+      key_index = keyboard.indexOf(text[index]),
+      offsets = [-11, -10, -1, 1, 10, 11],
+      typo_char = keyboard[key_index + offsets[rand(0, (offsets.length - 1))]] || text[index];
 
     // semi-colons can be part of an html entity leave them alone
     if (text[index] != ';' && key_index > -1) {
@@ -88,9 +90,7 @@ var tpyo = (function() {
 
   function blink() {
 
-    cursor.innerHTML = (cursor.innerHTML.length)
-      ? ''
-      : '|';
+    cursor.innerHTML = (cursor.innerHTML.length) ? '' : '|';
 
     timeout = setTimeout(blink, options.blink_speed);
   }
@@ -107,7 +107,7 @@ var tpyo = (function() {
     cursor = document.querySelector(selector + ' .cursor');
   }
 
-  return {
+  window.tpyo = {
     type: type,
     start: start,
     stop: stop
