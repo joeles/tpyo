@@ -1,0 +1,21 @@
+{
+  "name": "tpyo",
+  "main": "tpyo.js",
+  "version": "v1.0.0",
+  "homepage": "https://github.com/joeles/tpyo",
+  "authors": [
+    "Joel Escobar <joeles@gmail.com>"
+  ],
+  "description": "JavaScript typewriter script which makes and corrects typos as it types.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "typewriter",
+    "typo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*"
+  ]
+}
